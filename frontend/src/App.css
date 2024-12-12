@@ -1,0 +1,517 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --purple-col: #636ae8;
+  --red-col: #e8618c;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar .logo {
+  height: 40px;
+  width: auto;
+}
+
+.navbar .links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar .links > a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+}
+
+.navbar .links .signin {
+  background-color: var(--purple-col);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .navbar .logo {
+    margin-bottom: 1rem;
+  }
+
+  .navbar .links {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .navbar .links > a {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .navbar .links .signin {
+    width: auto;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .navbar .links > a {
+    font-size: 0.9rem;
+  }
+}
+/* Add these styles after the existing navbar styles */
+
+.navbar .links .logout {
+  background-color: var(--purple-col);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Media Queries - add inside existing breakpoints */
+
+@media (max-width: 768px) {
+  .navbar .links .logout {
+    width: auto;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar .links .logout {
+    font-size: 0.9rem;
+  }
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer .footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .footer-links {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.footer .footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.footer .footer-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 10px 0;
+  }
+
+  .footer .footer-content {
+    padding: 0.5rem;
+  }
+
+  .footer .footer-links a {
+    font-size: 0.9rem;
+  }
+}
+.home {
+  position: relative;
+  background-image: url("../assets/main-image.svg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.arc {
+  font-family: "Archivo Black", sans-serif;
+}
+.main-text {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 10%; /* Add padding for better spacing */
+}
+.main-text h1 {
+  font-weight: bold;
+  font-size: 5rem;
+  margin: 0;
+}
+.main-text p {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.join-btn {
+  background-color: var(--red-col);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.join-btn:hover {
+  background-color: var(--purple-col);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .main-text h1 {
+    font-size: 3rem; /* Adjust font size for smaller screens */
+  }
+  .main-text p {
+    font-size: 1.2rem; /* Adjust font size for smaller screens */
+  }
+  .join-btn {
+    font-size: 1.2rem; /* Adjust button size for smaller screens */
+    padding: 0.8rem 1.5rem; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-text h1 {
+    font-size: 2.5rem; /* Adjust font size for very small screens */
+  }
+  .main-text p {
+    font-size: 1rem; /* Adjust font size for very small screens */
+  }
+  .join-btn {
+    font-size: 1rem; /* Adjust button size for very small screens */
+    padding: 0.5rem 1rem; /* Adjust padding for very small screens */
+  }
+}
+/* Auth Container and Form Styles */
+.auth-container {
+  width: 90%;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--purple-col);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: var(--red-col);
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.auth-link a {
+  color: var(--purple-col);
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    width: 95%;
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .auth-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .auth-button {
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem auto;
+    border-radius: 0;
+  }
+
+  .auth-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group input {
+    padding: 0.6rem;
+  }
+
+  .auth-button {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .auth-link {
+    font-size: 0.9rem;
+  }
+}
+.contact-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f4f4f4 0%, #ffffff 100%);
+}
+
+.contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 2rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-info h1 {
+  font-size: 3rem;
+  color: var(--purple-col);
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+.contact-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--purple-col);
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: var(--purple-col);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--red-col);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .contact-info h1 {
+    font-size: 2rem;
+  }
+
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 1rem;
+  }
+
+  .contact-info h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-preference {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
