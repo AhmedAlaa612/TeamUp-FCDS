@@ -11,6 +11,7 @@ import Teams from "./pages/Teams";
 import PageNotFound from "./pages/PageNotFound";
 import { AuthProvider } from "./components/AuthContext";
 import Footer from "./components/Footer";
+import LoginBlock from "./components/LoginBlock";
 
 function App() {
   return (
@@ -19,8 +20,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route element={<LoginBlock />}>
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+        </Route>
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/profile" element={<Profile />} />

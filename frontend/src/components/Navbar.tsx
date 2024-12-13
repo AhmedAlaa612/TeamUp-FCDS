@@ -27,7 +27,13 @@ function Navbar() {
         <Link to="/teams">Teams</Link>
         <Link to="/contactus">Contact Us</Link>
         {isAuthenticated && (
-          <button className="logout" onClick={logout}>
+          <button
+            className="logout"
+            onClick={() => {
+              logout();
+              navigate("/");
+            }}
+          >
             Logout
           </button>
         )}
