@@ -37,7 +37,7 @@ const CreateTeamModal = ({ onClose, onTeamCreated }: CreateTeamModalProps) => {
     e.preventDefault();
     try {
       const response = await createTeam(teamData);
-      if (response.message !== "success") {
+      if (response.message !== "Team created successfully") {
         throw new Error("Failed to create team");
       }
       onTeamCreated();

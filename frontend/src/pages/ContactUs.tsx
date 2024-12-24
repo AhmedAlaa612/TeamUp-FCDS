@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { sendContactMessage } from "../services/Contact";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
-//import "../../assets/styles/Contact.css";
+import "../../assets/styles/Contact.css";
 function ContactUs() {
   const navigate = useNavigate();
   const {
