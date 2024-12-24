@@ -30,7 +30,8 @@ services:
       - backend
 
   db:
-    image: mysql:8.0
+    image: mysql:8.0.40-bookworm
+
     ports:
       - "3306:3306"
     environment:
