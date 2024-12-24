@@ -1,3 +1,9 @@
+# Download modules
+
+```
+npm install
+```
+
 # Startup site
 
 ```

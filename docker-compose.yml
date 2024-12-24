@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_DATABASE: teamup
+      DB_USERNAME: root
+      DB_PASSWORD: your_password
+    volumes:
+      - ./backend:/var/www/html
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: teamup
+      MYSQL_ROOT_PASSWORD: your_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/teamup.sql:/docker-entrypoint-initdb.d/teamup.sql
+
+volumes:
+  mysql_data:

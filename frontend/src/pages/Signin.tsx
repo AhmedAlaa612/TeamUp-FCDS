@@ -18,10 +18,12 @@ function Signin() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     console.log("Form Data Submitted:", data);
-    login();
-    navigate("/profile");
+    const response_status = await login(data.email, data.password);
+    if (response_status) {
+      navigate("/teams");
+    }
   };
 
   return (

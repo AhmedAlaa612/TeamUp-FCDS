@@ -9,6 +9,7 @@
 html,
 body {
   height: 100%;
+  min-width: 480px;
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
@@ -21,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-width: 480px;
 }
 .navbar {
   display: flex;
@@ -57,7 +59,6 @@ body {
   border-radius: 15px;
 }
 
-/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -95,7 +96,6 @@ body {
     font-size: 0.9rem;
   }
 }
-/* Add these styles after the existing navbar styles */
 
 .navbar .links .logout {
   background-color: var(--purple-col);
@@ -107,8 +107,6 @@ body {
   cursor: pointer;
   white-space: nowrap;
 }
-
-/* Media Queries - add inside existing breakpoints */
 
 @media (max-width: 768px) {
   .navbar .links .logout {
@@ -183,6 +181,7 @@ body {
     font-size: 0.9rem;
   }
 }
+
 .home {
   position: relative;
   background-image: url("../assets/main-image.svg");
@@ -218,7 +217,7 @@ body {
   align-items: center;
   text-align: center;
   color: white;
-  padding: 0 10%; /* Add padding for better spacing */
+  padding: 0 10%;
 }
 .main-text h1 {
   font-weight: bold;
@@ -452,7 +451,7 @@ body {
 }
 .error {
   position: absolute;
-  top: calc(100% + 5px); /* Position below input */
+  top: calc(100% + 5px);
   left: 0;
   background-color: var(--red-col);
   color: white;

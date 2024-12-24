@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "../components/AuthContext";
 
 function Signup() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -13,6 +14,8 @@ function Signup() {
     criteriaMode: "all",
     defaultValues: {
       username: "",
+      first_name: "",
+      last_name: "",
       email: "",
       password: "",
       repeat_password: "",
@@ -22,12 +25,14 @@ function Signup() {
       bio: "",
     },
   });
-  const { signup } = useAuth();
+  const { registerUser } = useAuth();
   const password = watch("password");
-  const onSubmit = (data: any) => {
-    console.log("Form Data Submitted:", data);
-    signup();
-    // Add your form submission logic here
+  const onSubmit = async (data: any) => {
+    const { password, repeat_password, ...userData } = data;
+    const register_status = await registerUser(userData, password);
+    if (register_status) {
+      navigate("/teams");
+    }
   };
 
   return (
@@ -45,7 +50,41 @@ function Signup() {
             <p className="error">{errors.username.message}</p>
           )}
         </div>
+        <div className="form-group">
+          <label htmlFor="first_name">First Name</label>
+          <input
+            type="text"
+            id="first_name"
+            {...register("first_name", {
+              required: "First name is required",
+              pattern: {
+                value: /^[A-Za-z]+$/,
+                message: "First name should only contain letters",
+              },
+            })}
+          />
+          {errors.first_name && (
+            <p className="error">{errors.first_name.message}</p>
+          )}
+        </div>
 
+        <div className="form-group">
+          <label htmlFor="last_name">Last Name</label>
+          <input
+            type="text"
+            id="last_name"
+            {...register("last_name", {
+              required: "Last name is required",
+              pattern: {
+                value: /^[A-Za-z]+$/,
+                message: "Last name should only contain letters",
+              },
+            })}
+          />
+          {errors.last_name && (
+            <p className="error">{errors.last_name.message}</p>
+          )}
+        </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -120,7 +159,6 @@ function Signup() {
             type="url"
             id="linkedin_link"
             {...register("linkedin_link", {
-              required: "LinkedIn link is required",
               pattern: {
                 value: /^https?:\/\/(www\.)?linkedin\.com\/.+/,
                 message: "Invalid LinkedIn URL",
@@ -138,7 +176,6 @@ function Signup() {
             type="url"
             id="github_link"
             {...register("github_link", {
-              required: "GitHub link is required",
               pattern: {
                 value: /^https?:\/\/(www\.)?github\.com\/.+/,
                 message: "Invalid GitHub URL",
