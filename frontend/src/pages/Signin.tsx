@@ -23,6 +23,7 @@ function Signin() {
     const response_status = await login(data.email, data.password);
     if (response_status) {
       navigate("/teams");
+      location.reload();
     }
   };
 

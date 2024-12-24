@@ -38,7 +38,7 @@ const Teams = () => {
       }
 
       setLoading(true);
-      setError(null); // Clear any previous errors
+      setError(null);
 
       try {
         const [myTeamsResponse, availableTeamsResponse] = await Promise.all([

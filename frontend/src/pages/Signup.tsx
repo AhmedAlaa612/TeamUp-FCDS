@@ -51,6 +51,7 @@ function Signup() {
     const register_status = await registerUser(userData, password);
     if (register_status) {
       navigate("/teams");
+      location.reload();
     }
   };
   return (
