@@ -28,13 +28,31 @@ function Signup() {
   const { registerUser } = useAuth();
   const password = watch("password");
   const onSubmit = async (data: any) => {
-    const { password, repeat_password, ...userData } = data;
+    const {
+      password,
+      repeat_password,
+      first_name,
+      last_name,
+      phone_number,
+      linkedin_link,
+      github_link,
+      ...rest
+    } = data;
+
+    const userData = {
+      ...rest,
+      firstName: first_name,
+      lastName: last_name,
+      phoneNumber: phone_number,
+      linkedinUrl: linkedin_link,
+      gitHubUrl: github_link,
+    };
+
     const register_status = await registerUser(userData, password);
     if (register_status) {
       navigate("/teams");
     }
   };
-
   return (
     <div className="auth-container">
       <h2>Sign up</h2>

@@ -28,10 +28,10 @@ const Login = async (email: string, password: string) => {
 const Register = async (user: User, password: string) => {
   const formData = new FormData();
   formData.append("name", user.name);
+  formData.append("email", user.email);
   formData.append("password", password);
   formData.append("firstName", user.firstName);
   formData.append("lastName", user.lastName);
-  formData.append("email", user.email);
   formData.append("phoneNumber", user.phoneNumber);
   if (user.linkedinUrl) {
     formData.append("linkedinUrl", user.linkedinUrl);
